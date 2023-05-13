@@ -30,7 +30,6 @@ To install the latest version of your blockchain node's binary, execute the foll
 ```
 curl https://get.ignite.com/pepeChamp/pepeChain@latest! | sudo bash
 ```
-`pepeChamp/pepeChain` should match the `username` and `repo_name` of the Github repository to which the source code was pushed. Learn more about [the install process](https://github.com/allinbits/starport-installer).
 
 ## Learn more
 

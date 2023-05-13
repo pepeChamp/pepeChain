@@ -1,0 +1,9 @@
+**/.git
+vue/
+release/
+.idea/
+.vscode/
+.DS_Store
+
+ts-client/
+build/pepenode*

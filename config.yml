@@ -1,11 +1,28 @@
-accounts:
+accounts: # mnemonic for development purpose
   - name: alice
-    coins: ["20000token", "200000000stake"]
+    coins: ["50000000000000000000000apepe"]
+    mnemonic: "food banana romance audit female method staff soft resist upset cousin decorate hero gesture sing poet toddler connect decade speak dog scrap unfold spike"
+  - name: alice-evm
+    coins: ["50000000000000000000000apepe"]
+    mnemonic: "food banana romance audit female method staff soft resist upset cousin decorate hero gesture sing poet toddler connect decade speak dog scrap unfold spike"
+    cointype: 60
+    algo: eth_secp256k1
   - name: bob
-    coins: ["10000token", "100000000stake"]
+    coins: ["50000000000000000000000apepe"]
+    mnemonic: "slot wife this apology hire ship also express close day survey hood popular expect field client lady awesome symptom jealous detail street call couple"
+  - name: bob-evm
+    coins: ["50000000000000000000000apepe"]
+    mnemonic: "slot wife this apology hire ship also express close day survey hood popular expect field client lady awesome symptom jealous detail street call couple"
+    cointype: 60
+    algo: eth_secp256k1
+  - name: faucet
+    coins: ["100000000000000000000000apepe"]
+  - name: validator_1
+    coins: ["100000000000000000000000apepe"]
+    mnemonic: "off control toddler tattoo excuse satisfy pig siege exact combine demise sign else lunch cluster despair shaft prepare once uphold buffalo pink all rate"
 validator:
-  name: alice
-  staked: "100000000stake"
+  name: validator_1
+  staked: "5000000000000000000000apepe"
 client:
   openapi:
     path: "docs/static/openapi.yml"
@@ -14,5 +31,79 @@ client:
   vuex:
     path: "vue/src/store"
 faucet:
-  name: bob
-  coins: ["5token", "100000stake"]
+  name: faucet
+  coins: ["2500000000000000000apepe"]
+build:
+  binary: "peped"
+  main: "cmd/peped"
+  ldflags:
+    - '-X "github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger"'
+  tags:
+    - netgo
+    - ledger
+init:
+  home: "$HOME/.pepe"
+  client:
+    chain-id: "pepe_555555"
+    keyring-backend: "test"
+    node: "tcp://localhost:26657"
+    broadcast-mode: "block"
+  app:
+    minimum-gas-prices: "1250000000apepe"
+    grpc-web:
+      enable: true # as default
+    api:
+      swagger: true # default is false
+    evm-rpc:
+      address: "0.0.0.0:8545" # as default # change the JSON-RPC address and port
+      ws-address: "0.0.0.0:8546" # as default # change the JSON-RPC websocket address and port
+genesis:
+  chain_id: "pepe_555555-1"
+  app_state:
+    staking: # Overwrite genesis for staking module
+      params:
+        bond_denom: "apepe"
+        max_validators: 3
+        unbonding_time: "300s"
+    mint:
+      params:
+        mint_denom: "apepe"
+    crisis:
+      constant_fee:
+        denom: "apepe"
+    gov:
+      deposit_params:
+        min_deposit: [{ amount: "5_000_000_000_000_000_000_000", denom: "upepe" }]
+      voting_params:
+        voting_period: "300s"
+    bank:
+      denom_metadata:
+        [
+          {
+            description: "The native token of PEPE Chain.",
+            denom_units:
+              [
+                { denom: "apepe", exponent: 0, aliases: ["attopepe"] },
+                { denom: "upepe", exponent: 12, aliases: ["micropepe"] },
+                { denom: "mpepe", exponent: 15, aliases: ["millipepe"] },
+                { denom: "pepe", exponent: 18 },
+              ],
+            base: "apepe",
+            display: "pepe",
+            name: "PEPE token",
+            symbol: "apepe",
+          },
+        ]
+    evm:
+      params:
+        evm_denom: "apepe"
+    feemarket:
+      params:
+        base_fee: "22000000000"
+        base_fee_change_denominator: 8
+        elasticity_multiplier: 4
+        enable_height: "0"
+        min_gas_multiplier: "0.500000000000000000"
+        min_gas_price: "20000000000.000000000000000000"
+        no_base_fee: false
+        

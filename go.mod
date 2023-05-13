@@ -157,7 +157,7 @@ require (
 )
 
 replace (
-	github.com/evmos/ethermint => ../ethermint
+	github.com/evmos/ethermint => github.com/pepeChamp/ethermint v0.17.3-0.20230513212101-dffa538c471e
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 	github.com/syndtr/goleveldb => github.com/syndtr/goleveldb v1.0.1-0.20200815110645-5c35d600f0ca
 	google.golang.org/grpc => google.golang.org/grpc v1.33.2

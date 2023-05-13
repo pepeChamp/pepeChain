@@ -4,7 +4,7 @@ pepeChain For all poggers.
 **pepechain** is a blockchain built using Cosmos SDK and Tendermint and created with [Ignite CLI](https://ignite.com/cli).
 
 
-Eventho we(I) built it on cosmos-sdk but pepeChai is able to use EVM feature and also CosmWasm smartcontract,
+Eventho it built on cosmos-sdk but pepeChain is able to use EVM feature and also CosmWasm smartcontract,
 for those who think Solidity is for weekling. You can try CosmWasm and have fun.
 
 

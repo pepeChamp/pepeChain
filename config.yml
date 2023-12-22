@@ -2,6 +2,8 @@ accounts: # mnemonic for development purpose
   - name: alice
     coins: ["50000000000000000000000apepe"]
     mnemonic: "food banana romance audit female method staff soft resist upset cousin decorate hero gesture sing poet toddler connect decade speak dog scrap unfold spike"
+    cointype: 118
+    algo: secp256k1
   - name: alice-evm
     coins: ["50000000000000000000000apepe"]
     mnemonic: "food banana romance audit female method staff soft resist upset cousin decorate hero gesture sing poet toddler connect decade speak dog scrap unfold spike"
@@ -10,6 +12,8 @@ accounts: # mnemonic for development purpose
   - name: bob
     coins: ["50000000000000000000000apepe"]
     mnemonic: "slot wife this apology hire ship also express close day survey hood popular expect field client lady awesome symptom jealous detail street call couple"
+    cointype: 118
+    algo: secp256k1
   - name: bob-evm
     coins: ["50000000000000000000000apepe"]
     mnemonic: "slot wife this apology hire ship also express close day survey hood popular expect field client lady awesome symptom jealous detail street call couple"
@@ -20,6 +24,8 @@ accounts: # mnemonic for development purpose
   - name: validator_1
     coins: ["100000000000000000000000apepe"]
     mnemonic: "off control toddler tattoo excuse satisfy pig siege exact combine demise sign else lunch cluster despair shaft prepare once uphold buffalo pink all rate"
+    cointype: 118
+    algo: secp256k1
 validator:
   name: validator_1
   staked: "5000000000000000000000apepe"
@@ -30,9 +36,6 @@ client:
     path: "ts-client"
   vuex:
     path: "vue/src/store"
-faucet:
-  name: faucet
-  coins: ["2500000000000000000apepe"]
 build:
   binary: "peped"
   main: "cmd/peped"
@@ -44,12 +47,11 @@ build:
 init:
   home: "$HOME/.pepe"
   client:
-    chain-id: "pepe_555555"
+    chain-id: "pepe_555555-1"
     keyring-backend: "test"
-    node: "tcp://localhost:26657"
+    node: "tcp://localhost:26659"
     broadcast-mode: "block"
   app:
-    minimum-gas-prices: "1250000000apepe"
     grpc-web:
       enable: true # as default
     api:
@@ -57,6 +59,17 @@ init:
     evm-rpc:
       address: "0.0.0.0:8545" # as default # change the JSON-RPC address and port
       ws-address: "0.0.0.0:8546" # as default # change the JSON-RPC websocket address and port
+    json-rpc:
+      address: "0.0.0.0:8545"
+      ws-address: "0.0.0.0:8546"
+# host:
+#   rpc: ":26659"
+#   p2p: ":26658"
+#   prof: ":6061"
+#   grpc: ":9092"
+#   grpc-web: ":9093"
+#   api: ":1318"
+#   evm-rpc: ":8645"
 genesis:
   chain_id: "pepe_555555-1"
   app_state:
@@ -97,13 +110,13 @@ genesis:
     evm:
       params:
         evm_denom: "apepe"
-    feemarket:
-      params:
-        base_fee: "22000000000"
-        base_fee_change_denominator: 8
-        elasticity_multiplier: 4
-        enable_height: "0"
-        min_gas_multiplier: "0.500000000000000000"
-        min_gas_price: "20000000000.000000000000000000"
-        no_base_fee: false
+    # feemarket:
+    #   params:
+    #     base_fee: "22000000000"
+    #     base_fee_change_denominator: 8
+    #     elasticity_multiplier: 4
+    #     enable_height: "0"
+    #     min_gas_multiplier: "0.500000000000000000"
+    #     min_gas_price: "20000000000.000000000000000000"
+    #     no_base_fee: false
         
